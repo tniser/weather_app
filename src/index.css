@@ -97,7 +97,6 @@ main {
   height: 90%;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-evenly;
   align-items: center;
 }
 .content {
@@ -283,6 +282,7 @@ li:focus#night {
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  gap: 0.5em;
 }
 
 .city {
