@@ -1,8 +1,9 @@
 import Weather from "./Weather";
 import Wind from "./Wind";
 import AdInf from "./AdInf";
+import Footer from "./Footer";
 
-function Content({ weather, tempSelect, city, cityName }) {
+function Content({ weather, tempSelect, city, cityName, locTime }) {
   return (
     <div className="content">
       <Weather
@@ -25,6 +26,7 @@ function Content({ weather, tempSelect, city, cityName }) {
         uv={weather.uv}
         isDay={weather.is_day}
       />
+      <Footer isDay={weather.is_day} locTime={locTime} />
     </div>
   );
 }

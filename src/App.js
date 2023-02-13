@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar";
 import Content from "./components/Content";
-import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
 import axios from "./apis/weatherAPI";
 import useAxios from "./hooks/useAxios";
@@ -80,9 +79,6 @@ function App() {
                 city={city}
                 menuOpened={menuOpened}
                 cityName={data.location.name}
-              />
-              <Footer
-                isDay={data.current.is_day}
                 locTime={data.location.localtime}
               />
               <div
