@@ -14,7 +14,6 @@ function MenuList({
   };
 
   const changeTemp = () => {
-    console.log(tempSelect);
     if (tempSelect) {
       setTempSelect(false);
       setMenuOpened(false);
@@ -40,7 +39,7 @@ function MenuList({
           changeTemp();
         }}
       >
-        {tempSelect ? "Show Celsius °C" : "Show Fahrenheit °F"}
+        {!tempSelect ? "Show Celsius °C" : "Show Fahrenheit °F"}
       </li>
       <li
         id={isDay === 1 ? "" : "night"}
