@@ -1,8 +1,8 @@
 import React from "react";
 
-function Footer({ locTime }) {
+function Footer({ locTime, isDay }) {
   return (
-    <footer className="footer">
+    <footer className={isDay === 1 ? "footer" : "footer night"}>
       <section>
         <p>Local Time:</p>
         <p>{locTime}</p>

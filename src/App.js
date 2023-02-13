@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 import axios from "./apis/weatherAPI";
 import useAxios from "./hooks/useAxios";
 //https://api.weatherapi.com/v1/current.json?key=abe1ff2d32524db68a680739231002&q=moscow&aqi=no
+const _ABOUT =
+  "Hello! This is my very first app on React - Weather App. It can display actual weather in City you pick. Please feel free to write comments to @trofimz (Telegram).";
+
 function App() {
   if (!localStorage.getItem("City")) {
     localStorage.setItem("City", "Moscow");
@@ -14,6 +17,7 @@ function App() {
   const [city, setCity] = useState(localStorage.getItem("City"));
   const [tempSelect, setTempSelect] = useState(true); //true = Celsius , false = Farenheit
   const [menuOpened, setMenuOpened] = useState(false);
+  const [showAboutWindow, setShowAboutWindow] = useState(false);
   const [data, fetchErr, isLoading, axiosFetch] = useAxios();
   if (fetchErr === "Request failed with status code 400") {
     localStorage.setItem("City", "Moscow");
@@ -62,15 +66,32 @@ function App() {
               city={city}
               menuOpened={menuOpened}
               setMenuOpened={setMenuOpened}
+              setShowAboutWindow={setShowAboutWindow}
             />
-            <main onClick={() => setMenuOpened(false)}>
+            <main
+              onClick={() => {
+                setMenuOpened(false);
+                setShowAboutWindow(false);
+              }}
+            >
               <Content
                 weather={data.current}
                 tempSelect={tempSelect}
                 city={city}
                 menuOpened={menuOpened}
+                cityName={data.location.name}
               />
-              <Footer locTime={data.location.localtime} />
+              <Footer
+                isDay={data.current.is_day}
+                locTime={data.location.localtime}
+              />
+              <div
+                className={data.current.is_day === 1 ? "about" : "about night"}
+                id={showAboutWindow ? "toggled" : ""}
+              >
+                <h1>About</h1>
+                <p>{_ABOUT}</p>
+              </div>
             </main>
           </div>
         </>

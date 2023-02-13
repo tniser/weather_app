@@ -2,7 +2,7 @@ import Weather from "./Weather";
 import Wind from "./Wind";
 import AdInf from "./AdInf";
 
-function Content({ weather, tempSelect, city }) {
+function Content({ weather, tempSelect, city, cityName }) {
   return (
     <div className="content">
       <Weather
@@ -12,6 +12,7 @@ function Content({ weather, tempSelect, city }) {
         condition={weather.condition}
         tempSelect={tempSelect}
         city={city}
+        cityName={cityName}
       />
       <Wind
         wind_dir={weather.wind_dir}

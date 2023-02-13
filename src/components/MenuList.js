@@ -6,7 +6,13 @@ function MenuList({
   setTempSelect,
   setMenuOpened,
   isDay,
+  setShowAboutWindow,
 }) {
+  const showAbout = () => {
+    setShowAboutWindow(true);
+    setMenuOpened(false);
+  };
+
   const changeTemp = () => {
     console.log(tempSelect);
     if (tempSelect) {
@@ -17,6 +23,7 @@ function MenuList({
       setMenuOpened(false);
     }
   };
+
   return (
     <>
       <li
@@ -30,13 +37,18 @@ function MenuList({
         id={isDay === 1 ? "" : "night"}
         className="navbar__item"
         onClick={() => {
-          console.log(tempSelect);
           changeTemp();
         }}
       >
         {tempSelect ? "Show Celsius °C" : "Show Fahrenheit °F"}
       </li>
-      <li id={isDay === 1 ? "" : "night"} className="navbar__item">
+      <li
+        id={isDay === 1 ? "" : "night"}
+        className="navbar__item"
+        onClick={() => {
+          showAbout();
+        }}
+      >
         About
       </li>
     </>

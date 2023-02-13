@@ -2,6 +2,17 @@ This is my first React App. This app can request Weather data for city you choos
 
 Change Log:
 
+Alpha v0.2.1 - Includes small fixes
+
+Fixed:
+
+- Fixed layout on mobile apps
+
+Functionality:
+
+- About Page
+- Get name of City from API
+
 Alpha v0.1.0 - Includes first app commit.
 
 Functionality:

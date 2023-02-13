@@ -11,6 +11,7 @@ function Navbar({
   city,
   menuOpened,
   setMenuOpened,
+  setShowAboutWindow,
 }) {
   const [isSelectCity, setIsSelectCity] = useState(false);
 
@@ -18,6 +19,7 @@ function Navbar({
     if (!menuOpened) {
       setMenuOpened(true);
       setIsSelectCity(false);
+      setShowAboutWindow(false);
     } else {
       setMenuOpened(false);
       setIsSelectCity(false);
@@ -74,6 +76,7 @@ function Navbar({
               setTempSelect={setTempSelect}
               setMenuOpened={setMenuOpened}
               isDay={isDay}
+              setShowAboutWindow={setShowAboutWindow}
             />
           )}
         </ul>
