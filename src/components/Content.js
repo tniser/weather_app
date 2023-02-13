@@ -1,9 +1,8 @@
 import Weather from "./Weather";
 import Wind from "./Wind";
 import AdInf from "./AdInf";
-import { useState } from "react";
 
-function Content({ weather, tempSelect, city, menuOpened }) {
+function Content({ weather, tempSelect, city }) {
   return (
     <div className="content">
       <Weather
