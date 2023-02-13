@@ -1,13 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* VARIABLES */
+:root {
+  --rich-black: #081e21ff;
+  --gunmetal: #1c3435ff;
+  --non-photo-blue: #84dbe7ff;
+  --electric-blue: #97ebf1ff;
+  --mint-cream: #eff7f6ff;
+
+  --BORDER-DARK: 1px solid var(--BG-dark);
+  --BORDER-LIGHT: 1px solid var(--BG-light);
+  --BORDER-R: 10px;
+  --BSHADOW-dark: 1px 1px 3px var(--BG-dark);
+  --BSHADOW-light: 1px 1px 3px var(--BG-light);
+
+  --FC-dark: #081e21;
+  --FC-light: #eff7f6;
+  --BG-dark: #081e21;
+  --BG-light: #84dbe7ff;
+  --G-light: linear-gradient(to bottom, #97ebf1ff, #84dbe7ff);
+  --G-dark: linear-gradient(to bottom, #1c3435ff, #081e21ff);
+}
+
+/* Utilities */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100%;
+  height: max(100vh, 100%);
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--G-dark);
+}
+.App {
+  width: min(100%, 700px);
+  border: var(--BORDER-DARK);
+  border-radius: var(--BORDER-R);
+  font-size: clamp(0.7rem, 4vw, 1.2rem);
+}
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  color: var(--FC-dark);
+  background: var(--G-light);
+  box-shadow: var(--BSHADOW-dark);
+}
+.container.night {
+  background: var(--G-dark);
+  box-shadow: var(--BSHADOW-light);
+  color: var(--FC-light);
+}
+
+main {
+  height: 100%;
+  width: clamp(300px, 100%, 450px);
+}
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.logo {
+  font-size: 2rem;
+  font-family: "Kaushan Script", cursive;
+  text-decoration: none;
+  display: block;
+  color: var(--FC-dark);
+}
+.logo.night {
+  color: var(--BG-light);
+}
+
+.header {
+  width: 100%;
+  height: 4rem;
+  position: sticky;
+  top: 0.4em;
+}
+.header#toggled {
+  border-radius: var(--BORDER-R);
+}
+
+.navbar {
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hamburger {
+  width: min(70px, 16vw);
+  height: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.hamburger:hover .bar {
+  filter: opacity(1);
+}
+
+.bar {
+  filter: opacity(0.3);
+  background-color: var(--FC-dark);
+  height: 0.5em;
+  width: 100%;
+  border-radius: 20px;
+  position: absolute;
+  transition: all 0.2s ease-in-out;
+}
+.bar.night {
+  background-color: var(--BG-light);
+}
+
+.bar:first-child {
+  transform: translateY(-13px);
+}
+.bar:nth-child(2) {
+  opacity: 1;
+}
+.bar:last-child {
+  transform: translateY(13px);
+}
+
+.bar:first-child#toggled {
+  transform: rotate(45deg);
+  filter: opacity(1);
+}
+.bar:nth-child(2)#toggled {
+  opacity: 0;
+}
+.bar:last-child#toggled {
+  transform: rotate(-45deg);
+  filter: opacity(1);
+}
+
+.navbar__menu {
+  border-radius: var(--BORDER-R);
+  box-shadow: 0px 2px 3px -1px var(--BG-dark);
+  font-size: 2em;
+  background-color: var(--BG-light);
+  padding: 1rem;
+  width: 12em;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, 0);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+.navbar__menu#night {
+  background-color: var(--BG-dark);
+  box-shadow: 0px 2px 3px -1px var(--BG-light);
+}
+.navbar__menu.hidden {
+  transform: translate(-50%, -300px);
+  opacity: 0;
+}
+
+.navbar__list {
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+li {
+  z-index: 1;
+  height: 1.6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li:hover,
+li:focus {
+  /*   filter: drop-shadow(5px 1px 15px var(--FC-light)); */
+  border-radius: 20px;
+  background-color: var(--electric-blue);
+  cursor: pointer;
+}
+li:hover#night,
+li:focus#night {
+  /*   filter: drop-shadow(5px 1px 15px var(--FC-light)); */
+  border-radius: 20px;
+  background-color: var(--gunmetal);
+  cursor: pointer;
+}
+
+.loading {
+  height: 100vh;
+  font-size: 2rem;
+  display: grid;
+  place-content: center;
+}
+.loading .img {
+  width: min(140px, 20vw);
+  height: min(140px, 20vw);
+  background: url("../public/loading.gif") no-repeat center / cover;
+}
+
+.error {
+  height: 100vh;
+  font-size: 2em;
+  padding: 2em;
+  text-align: center;
+  display: grid;
+  place-content: center;
+}
+.textInput[type="text"] {
+  opacity: 0.8;
+  width: 100%;
+  border-radius: 15px;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.2em;
+  transition: 0.2s opacity;
+}
+
+.textInput[type="text"]:focus,
+.textInput[type="text"]:hover {
+  opacity: 1;
+  outline: none;
+}
+.textInput[type="text"]:focus {
+  box-shadow: var(--BSHADOW-dark);
+}
+.textInput[type="text"]:focus.night {
+  box-shadow: var(--BSHADOW-light);
+}
+
+.weather {
+  width: 100%;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.city {
+  font-size: 2.5em;
+}
+
+.isDay {
+  font-size: 2em;
+}
+
+.temp {
+  font-size: 6em;
+}
+
+.condition {
+  font-size: 2em;
+}
+
+.wind {
+  /* border: var(--BORDER-DARK); */
+  border-radius: var(--BORDER-R);
+  margin: 0.7em;
+  font-size: 1.3em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1rem;
+  box-shadow: var(--BSHADOW-dark);
+}
+.wind.night {
+  box-shadow: var(--BSHADOW-light);
+}
+
+.wind__labels,
+.wind__values {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  gap: 0.5em;
+}
+.wind__values {
+  text-align: right;
+}
+
+.footer {
+  /* border: var(--BORDER-DARK); */
+  border-radius: var(--BORDER-R);
+  margin: 1em;
+  box-shadow: var(--BSHADOW-dark);
+  font-size: 1.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+}
+.footer.night {
+  box-shadow: var(--BSHADOW-light);
+}
+
+.footer section {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
 }
