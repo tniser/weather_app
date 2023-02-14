@@ -9,7 +9,7 @@ const _ABOUT =
 
 function App() {
   if (!localStorage.getItem("City")) {
-    localStorage.setItem("City", "Moscow");
+    localStorage.setItem("City", "moscow-moscow-city-russia");
   }
 
   const API_KEY = "abe1ff2d32524db68a680739231002";
@@ -19,7 +19,7 @@ function App() {
   const [showAboutWindow, setShowAboutWindow] = useState(false);
   const [data, fetchErr, isLoading, axiosFetch] = useAxios();
   if (fetchErr === "Request failed with status code 400") {
-    localStorage.setItem("City", "Moscow");
+    localStorage.setItem("City", "moscow-moscow-city-russia");
   }
   const getData = () => {
     axiosFetch({

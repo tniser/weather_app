@@ -1,8 +1,21 @@
 This is my first React App. This app can request Weather data for city you choose.
 
-# New update
+# Change Log:
 
-Change Log:
+## Latest update
+
+Alpha v1.1.0 - Major update
+
+Fixed:
+
+- minor fixes
+
+Added:
+
+&#43; Search city helper box. Now you can insert few letters and it will shows you some variants
+&#43; City name now shows more exact region name
+
+## Oldest updates
 
 Alpha v0.3.2 - Minor update
 
@@ -13,7 +26,7 @@ Fixed:
 
 Added:
 
-- Condition icon now is available on Day/Night line
+&#43; Condition icon now is available on Day/Night line
 
 ---
 
@@ -25,8 +38,8 @@ Fixed:
 
 Functionality:
 
-- About Page
-- Get name of City from API
+&#43; About Page
+&#43; Get name of City from API
 
 ---
 
