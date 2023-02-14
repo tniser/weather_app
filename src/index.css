@@ -76,6 +76,14 @@ body {
   font-size: clamp(1rem, 4vw, 1.4rem);
   height: 100vh;
 }
+@media (orientation: landscape) {
+  .App {
+    height: 100%;
+  }
+  #root {
+    height: 100%;
+  }
+}
 .container {
   border-radius: var(--BORDER-R);
   height: 100%;
@@ -279,22 +287,35 @@ li:focus#night {
   padding: 1rem;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   text-align: center;
   gap: 0.5em;
+  flex-shrink: 2;
 }
 
 .city {
-  font-size: 2em;
+  font-size: min(2em, 6vh);
 }
 
 .isDay {
-  font-size: 1.5em;
+  font-size: min(1.5em, 5vh);
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  align-items: center;
+}
+
+.conditionIcon {
+  width: max(7vw, 1.5em);
+  height: max(7vw, 1.5em);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .temp {
-  font-size: 5em;
+  font-size: min(5em, 10vh);
 }
 
 .condition {
@@ -311,6 +332,7 @@ li:focus#night {
   align-items: flex-end;
   padding: 1rem;
   box-shadow: var(--BSHADOW-dark);
+  flex-shrink: 1;
 }
 .wind.night {
   border: var(--BORDER-LIGHT);
@@ -321,7 +343,7 @@ li:focus#night {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
-  gap: 0.5em;
+  gap: max(0.2em, 1.4vh);
 }
 .wind__values {
   text-align: right;
@@ -360,6 +382,7 @@ li:focus#night {
   font-size: 1em;
   padding: 0.5em;
   margin-bottom: 0.2em;
+  flex-shrink: 1;
 }
 .footer.night {
   border: var(--BORDER-LIGHT);
