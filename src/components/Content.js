@@ -3,7 +3,7 @@ import Wind from "./Wind";
 import AdInf from "./AdInf";
 import Footer from "./Footer";
 
-function Content({ weather, tempSelect, city, cityName, locTime }) {
+function Content({ weather, tempSelect, city, cityName, locTime, menuOpened }) {
   return (
     <div className="content">
       <Weather

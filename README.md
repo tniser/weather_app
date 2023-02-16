@@ -4,6 +4,18 @@ This is my first React App. This app can request Weather data for city you choos
 
 ## Latest update
 
+Alpha v1.2.0 - minor update
+
+Fixed:
+
+- UI issues
+
+Added:
+
+&#43; shadeboxes on hover
+
+## Oldest updates
+
 Alpha v1.1.0 - Major update
 
 Fixed:
@@ -12,10 +24,8 @@ Fixed:
 
 Added:
 
-&#43; Search city helper box. Now you can insert few letters and it will shows you some variants
+&#43; Search city helper box. Now you can insert few letters and it will shows you some variant<br>
 &#43; City name now shows more exact region name
-
-## Oldest updates
 
 Alpha v0.3.2 - Minor update
 

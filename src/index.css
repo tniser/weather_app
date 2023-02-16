@@ -107,6 +107,7 @@ main {
   flex-flow: column nowrap;
   align-items: center;
 }
+
 .content {
   width: 85%;
   height: 90%;
@@ -115,6 +116,9 @@ main {
   justify-content: flex-start;
   gap: 1em;
   align-items: center;
+}
+
+main#blur {
 }
 
 code {
@@ -143,9 +147,6 @@ code {
   position: sticky;
   top: 0.4em;
 }
-.header#toggled {
-  border-radius: var(--BORDER-R);
-}
 
 .navbar {
   padding: 1rem;
@@ -165,6 +166,7 @@ code {
   align-items: center;
   margin-right: 1rem;
   position: relative;
+  cursor: pointer;
 }
 
 .hamburger:hover .bar {
@@ -218,9 +220,18 @@ code {
   transform: translate(-50%, 0.8em);
   opacity: 1;
   transition: all 0.3s ease-out;
+  z-index: 1;
 }
+.navbar__menu:hover {
+  transform: translate(-50%, 0.6em);
+  box-shadow: 0px 10px 30px -2px var(--BG-dark);
+}
+
 .navbar__menu#night {
   background-color: var(--BG-dark);
+}
+.navbar__menu#night:hover {
+  box-shadow: 0px 8px 20px -2px var(--electric-blue);
   border: var(--BORDER-LIGHT);
 }
 .navbar__menu.hidden {
@@ -319,6 +330,7 @@ code {
   padding: 0.5rem;
   font-size: 1.2em;
   transition: 0.2s opacity;
+  caret-color: var(--non-photo-blue);
 }
 
 .textInput[type="text"]:focus,
@@ -413,6 +425,7 @@ code {
   transition: all 0.4s ease-out;
   transform: translateY(-800px);
   line-height: 1.5em;
+  box-shadow: 1px 1px 6px 1px var(--gunmetal);
 }
 .about > h1 {
   margin-bottom: 1em;

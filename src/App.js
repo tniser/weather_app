@@ -3,7 +3,7 @@ import Content from "./components/Content";
 import { useState, useEffect } from "react";
 import axios from "./apis/weatherAPI";
 import useAxios from "./hooks/useAxios";
-//https://api.weatherapi.com/v1/current.json?key=abe1ff2d32524db68a680739231002&q=moscow&aqi=no
+
 const _ABOUT =
   "Hello! This is my very first app on React - Weather App. It can display actual weather in City you pick. Please feel free to write comments to @trofimz (Telegram).";
 
@@ -68,6 +68,7 @@ function App() {
               setShowAboutWindow={setShowAboutWindow}
             />
             <main
+              id={menuOpened ? "blur" : ""}
               onClick={() => {
                 setMenuOpened(false);
                 setShowAboutWindow(false);

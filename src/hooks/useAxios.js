@@ -22,6 +22,7 @@ const useAxios = () => {
         //...requestConfig,
         signal: ctrl.signal,
       });
+
       setResponse(res.data);
     } catch (err) {
       setError(err.message);

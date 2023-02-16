@@ -27,7 +27,7 @@ function Navbar({
   };
 
   return (
-    <header className="header" id={!menuOpened ? "" : "toggled"}>
+    <header className="header">
       <div className="navbar">
         <div className="logo-container">
           <a href="/" className={isDay === 1 ? "logo" : "logo night"}>
